@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="icon" href="/images/LOGO.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href='/stylesheets/reset.css'>
+    <link rel='stylesheet' href='/stylesheets/partials/footer.css'>
+    <link rel='stylesheet' href='/stylesheets/partials/header.css'>
+    <link rel='stylesheet' href='/stylesheets/curso.css' />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+
+    
+    <script src="/javascripts/TableCSVExporter.js"></script>    
+  </head>
+  <body>
+    <%- include('./partials/header') %> 
+    <section class="curso">
+        <component  class="curso_component">
+          <div class="content_curso">
+        <div class="img_curso">
+            <img src="<%=`/uploads/${curso.picture_curso_path}` %>" alt="">
+        </div>
+        <div class="action_curso">
+          
+          <a href="/cursos/editar/<%= curso.id  %> ">
+            <button type="submit" class="btn_trash">
+              <img src="/images/pencil.svg" alt="">
+            </button>
+          </a>
+          <form action="/cursos/removercurso" method="POST">
+            <input type="hidden" id="custId" name="id" value="<%=curso.id%>"/>
+            <button type="submit" class="btn_trash">
+              <i aria-hidden="true"></i>
+              <img src="/images/trash.svg" alt="">
+            </button>
+          </form>
+        </div>
+        </div>
+        <div class="info_curso">
+          <div class="cont_nome_prof_aula">
+          <div class="cont_nome_prof">
+          <a href="/cursos/<%= curso.id  %> ">
+            <h2><%= curso.titulo  %> </h2>
+          </a>
+          <a href="/cursos/<%= curso.id  %> ">
+            <h4><%= curso.professor  %> </h4>
+          </a>
+          </div>
+          <a href="/cursos/aulas/<%= curso.id  %> ">
+            <h4 class="h4_aulas">Assista aqui as Aulas </h4>
+          </a>
+        </div>
+        <div class="desc_curso">
+          <p><%= curso.descricao %> </p>
+
+        </div>
+            <div class="data_curso">
+              <div>
+                <h6>Data Criação:</h6>
+                <%= curso.dataCriacao %>
+              </div>
+              <div>
+                <h6>Última modificação:</h6>
+
+                <%= curso.dataModificacao %>
+              </div>
+            </div>
+          
+        </div>
+        </component>
+      </section>
+      <section>
+        <article class="art_alunos">
+          <div>
+          <h2>Alunos</h2>
+          <a href="/data/uploads/teste.csv" download id=aModel>Baixar modelo</a>
+          <form method="POST" enctype="multipart/form-data">
+            <input  type="file" name="lista_alunos" accept=".csv">
+            <input type="submit" value="Enviar">
+          </form>
+        
+        <table id="dataTable" class="table table-default table-striped table-hover ">
+          <thead class="table-striped table-success">
+            <tr>
+              <td>Id</td>
+              <td>Nome</td>
+            </tr>
+          </thead>
+          <% turma.forEach((turma) => { %>
+            <tr>
+              <td><%= turma.idAlunos %> </td>
+              <td><%= turma.alunos %> </td>
+            </tr>
+            <%}) %> 
+          </table>
+        </div>          
+          <img src="/images/5ff7b499714ca4ccecb3b091_Imagem.png">
+        </article>
+        <button class="btnDowbCsv" id="btnDowbCsv">Baixar lista</button>
+          
+          <script>
+            const dataTable = document.getElementById("dataTable");
+
+            const btnDowbCsv = document.getElementById("btnDowbCsv");
+            
+            btnDowbCsv.addEventListener("click", () => {
+              const exporter = new TableCSVExporter(dataTable);
+              const csvOutput = exporter.convertToCSV();
+              const csvBlob = new Blob([csvOutput], { type: "text/csv"});
+              const blobUrl = URL.createObjectURL(csvBlob);
+              const anchorElement = document.createElement("a");
+
+              anchorElement.href = blobUrl;
+              anchorElement.download = "lista-alunos.csv";
+              anchorElement.click();
+              console.log(new TableCSVExporter(dataTable))
+              setTimeout(() => {
+                URL.revokeObjectURL(blobUrl);
+              }, 500);
+              
+            });
+          </script>
+        </section>
+
+    <%- include('./partials/footer') %> 
+  </body>
+</html>

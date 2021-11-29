@@ -1,0 +1,223 @@
+/* --- Variáveis */
+:root {
+  --color-text: #000000;
+  --color-primary: #0000ee;
+  --color-secondary: #00df4d;
+  --color-one: #665454;
+  --color-two: #68de5a;
+  --color-three: #8c52e5;
+  --color-four: #979797;
+  --color-background: #fff;
+}
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: var(--color-primary);
+  margin: 0 auto;
+}
+main{
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px;
+}
+.banner{
+  background-image: url(../images/pexels-olya-kobruseva-7887824.jpg);
+  height: 80vh;
+  max-height: 900px;
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: center;
+  background-attachment: scroll;
+  padding: 10px 0 0 0;
+  box-shadow:  0px -1px 7px 0px var(--color-primary);
+  position: relative;
+}
+.somos_gama{
+  position: absolute;
+  border-radius: 20px;
+  width: 450px;
+  height: 100px;
+  top: 30vh;
+  z-index: 2;
+}
+.somos_gama a{
+  text-transform: uppercase;
+  position: absolute;
+  font-size: xx-large;
+  top: 30px;
+  left: 70px;
+  z-index: 3;
+  color: aliceblue;
+  
+}
+.somos_gama a:hover{
+  font-size:xx-large;
+  font-style: oblique 14deg;
+  font-stretch:115%;
+  color: var(--color-four)
+
+}
+
+/* Atualizar curso */
+
+.back{
+  margin: 12px;
+  padding: 5px;
+  width: 120px;
+  align-items: center;
+  background-color: var(--color-two);
+  border-radius: 8px;
+}
+.back img{
+  width:15px;
+}
+.back a{
+  font-size: x-large;
+  color: var(--color-primary);
+    margin: 10px;
+}
+.edit, .newCurso{
+  position: relative;
+  margin: 10px auto 
+}
+
+.top-edit, .top-newCurso{
+  text-align: center;
+  padding: 10px 0
+}
+
+.top-edit h1, .newCurso h1{
+  font-size: 2.3rem;
+  margin: 10px auto;
+  color: var(--color-primary)
+}
+.top-edit h4, .newCurso h4{
+  font-size: 1.3rem;
+  margin: 0 auto;
+  color: var(--color-secondary)
+}
+
+.formulario-article{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.formulario{
+  display: flex;
+  flex-wrap:wrap;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input_img_curso{
+  background-color:var(--color-three);
+  border-radius:2px 10px 2px 10px;
+  padding: 20px 4px 4px 20px;
+  margin-right: 20px;
+  
+}
+
+.form_dados{
+  display: flex;
+  flex-direction:column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+input {
+  width: 70%;
+  display: flex;
+  align-items: center;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #8d52e532;
+    border: none;
+    margin: 10px;
+    font-size: 15px
+}
+
+textarea {
+  background-color: #8d52e532;
+  border: none;
+  border-radius: 10px 2px;
+  margin: 5px;
+  padding: 5px
+}
+label {
+  color:var(--color-one);
+  font-size: 1 rem;
+}
+
+.back:hover{
+  font-size: xx-large;
+  text-decoration:underline;
+  opacity:60%
+}
+.back a:hover{
+  color:var(--color-one)
+}
+.button{
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+}
+button[type="submit"] {
+  border: none;
+  cursor: pointer;
+  color: var(--color-primary);
+  font-weight: 800;
+  background-color:var(--color-two);
+  padding: 10px 8px;
+  margin: 10px;
+  border-radius:8px;
+  align-items: center;
+  justify-content:center;
+  text-transform: uppercase;
+}
+
+
+button:hover{
+  color: var(--color-two);
+  font-weight: 850;
+  background-color:var(--color-primary);
+  width:110px;
+  height: 40px;
+  padding: 8px 0;
+  transition: 0.4s
+}
+
+/* Aulas */
+.aulas{
+  display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+.aulas iframe{
+  margin: 20px;
+    border-radius: 30px;
+    background-color: #00df4d;
+    padding: 20px;
+}
+
+.aulas h2{
+  text-transform: uppercase;
+  font-size: xx-large;
+}
+.aulas h3, h4{
+  text-transform: uppercase;
+
+}

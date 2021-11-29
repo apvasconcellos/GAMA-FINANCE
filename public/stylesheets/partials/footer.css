@@ -1,0 +1,33 @@
+:root {
+    --color-text: #000000;
+    --color-primary: #0000ee;
+    --color-secondary: #00df4d;
+    --color-one: #665454;
+    --color-two: #68de5a;
+    --color-three: #8c52e5;
+    --color-four: #979797;
+    --color-background: #fff;
+}
+
+footer{
+    background-color: #68de5a;
+    margin-top: 30px;
+    height: auto;
+    padding: 10px;
+}
+
+footer p {
+    text-align: center;
+    font-size: 30px;
+}
+
+footer a {
+    color: var(--color-primary);
+    font-size: 30px;
+    margin: 10px;
+}
+
+.contact{
+    display: flex;
+    justify-content: center;
+}

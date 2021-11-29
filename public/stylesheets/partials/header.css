@@ -1,0 +1,87 @@
+:root {
+    --color-text: #000000;
+    --color-primary: #0000ee;
+    --color-secondary: #00df4d;
+    --color-one: #665454;
+    --color-two: #68de5a;
+    --color-three: #8c52e5;
+    --color-four: #979797;
+    --color-background: #fff;
+}
+body {
+    font-family: 'Raleway', sans-serif;
+    color: var(--color-primary);
+    margin: 0 auto;
+}
+header{
+    padding: 0;
+    background-color: var(--color-background);
+    margin: 0 0 20px 0;
+}
+
+header a {
+    color: var(--color-text);
+}
+header a:hover{
+    font-size:20px;
+    color: var(--color-four);
+    transition: 0.3s
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    font-size:large;
+    padding: 0 10px
+}
+.logo {
+width:250px
+}
+nav {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    width: 100vw;
+    flex: 1;
+}
+.navbar{
+    width:40%;
+    font-size: x-large;
+    flex: 1
+}
+.navbar ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 10px;
+}
+  
+  
+.navbar a {
+    margin: 10px;
+}
+
+.add_curso{
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+.add_curso a{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.add_curso img{
+width: 30px;
+margin: 10px;
+}

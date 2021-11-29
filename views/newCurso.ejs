@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title  %> </title>
+    <link rel="icon" href="images/LOGO.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href='/stylesheets/reset.css'>
+    <link rel='stylesheet' href='/stylesheets/style.css'>
+    <link rel='stylesheet' href='/stylesheets/partials/footer.css'>
+    <link rel='stylesheet' href='/stylesheets/partials/header.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+
+
+</head>
+<body class= body-newCurso>
+    <div class="back">
+    <a href="/"><img src="/images/arrow.png" alt=""> Inicio</a>
+    </div>
+    <section class="newCurso">
+    <article class="top-newCurso">
+    <h1>Cadastre</h1>
+    <h4>Crie aqui um novo curso</h4>
+    <h3><%= typeof msg != "undefined" ? msg : ""%> </h3>
+    </article>
+    <article class="formulario-article">
+    <form action="/cursos/novocurso" method="POST" class="formulario" enctype="multipart/form-data">
+    <div class="formulario">
+        <div class="input_img_curso" >
+                <img class="preview_img" width="300px" id="output" />
+                <input type="file" name="picture" id="picture" accept="image/*" onchange="loadFile(event)" />
+            
+            <script>
+                const loadFile = function(event) {
+                  const reader = new FileReader();
+                  reader.onload = function(){
+                    const output = document.getElementById('output');
+                    output.src = reader.result;
+                  };
+                  reader.readAsDataURL(event.target.files[0]);
+                };
+              
+            </script>
+        </div>
+        <div class="form_dados">
+        <div class="form">
+            <label for="titulo">Titulo do curso:</label>
+            <input type="text" id="titulo" name="titulo" placeholder="Digite o nome do curso" required>
+        </div>
+    
+        <div class="form">
+            <label for="professor">Professor(a):</label>
+            <input type="text" id="professor" name="professor" placeholder="Digite o nome do professor" required>
+        </div>
+
+        <div class="form">
+            <label for="descricao">Breve resumo:</label>
+            <textarea rows="5" cols="33" id="descricao" name="descricao" required></textarea>
+        </div>
+        
+        <div class="button">
+            <button type="submit">Cadastrar</button>
+        </div>
+    </div>
+</div>
+    </form>
+    </article>
+    </section>
+    <%- include('./partials/footer') %> 
+
+</body>
+</html>
